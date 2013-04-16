@@ -15,7 +15,7 @@ module ActiveRecordShards
       switch_connection(:shard => shard) if supports_sharding?
       yield
     ensure
-      switch_connection(old_options)
+      #switch_connection(old_options)
     end
 
     def on_first_shard(&block)
@@ -34,7 +34,7 @@ module ActiveRecordShards
         [yield]
       end
     ensure
-      switch_connection(old_options)
+      #switch_connection(old_options)
     end
 
     def on_slave_if(condition, &block)
